@@ -1,0 +1,19 @@
+{
+  "name": "isocode",
+  "version": "0.0.0",
+  "description": "Javascript application prerenderer",
+  "main": "driver.js",
+  "directories": {
+    "example": "examples"
+  },
+  "dependencies": {
+    "phantomjs": "~1.9.2-4"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "bin/render `cat examples/angry-cats`"
+  },
+  "repository": "",
+  "author": "jtwb",
+  "license": "MIT"
+}
