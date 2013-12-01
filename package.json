@@ -11,7 +11,7 @@
   },
   "devDependencies": {},
   "scripts": {
-    "test": "bin/render `cat examples/angry-cats`"
+    "test": "bin/render `cat examples/angry-cats/URL`"
   },
   "repository": "",
   "author": "jtwb",

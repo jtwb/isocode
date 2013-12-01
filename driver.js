@@ -42,7 +42,6 @@ page.onConsoleMessage = function(msg) {
 //
 // Drive PhantomJS
 // 
-console.log(args.url);
 page.open(args.url, function() {
   page.evaluate(function() {
     console.log($('html').html());
