@@ -1,0 +1,42 @@
+<head></head>
+<body style="">
+
+    <output id="out">
+      <ul><li><code>[{"name":"Wet Cat","image_path":"assets/images/cat2.jpg"},{"name":"Bitey Cat","image_path":"assets/images/cat1.jpg"},{"name":"Surprised Cat","image_path":"assets/images/cat3.jpg"}]</code></li><li><code>[{"name":"Wet Dog","image_path":"assets/images/cat2.jpg"},{"name":"Bitey Cat","image_path":"assets/images/cat1.jpg"},{"name":"Surprised Cat","image_path":"assets/images/cat3.jpg"}]</code></li></ul>
+    </output>
+
+<script src="/klass.js"></script>
+<script src="/watch.js"></script>
+<script src="/precognition.js"></script>
+<script src="/jquery.js"></script>
+<script>
+
+
+$(function() {
+    var cats, dogs;
+
+    var out = function(data) {
+        $('<li><code>' + JSON.stringify(data) + '</code></li>').appendTo('#out ul');
+    };
+
+    return $.when(
+        $.getJSON('/cats.json', function(catdata) {
+          cats = catdata;
+        }),
+
+        $.getJSON('/dogs.json', function(dogfacts) {
+          dogs = dogfacts;
+        })
+    ).then(function() {
+        console.log({ cats: cats, dogs: dogs });
+        out(cats);
+        out(dogs);
+        Precognition.off();
+    });
+});
+
+</script>
+
+
+
+</body>

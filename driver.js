@@ -17,15 +17,16 @@ if (args.length > 1) {
 // 
 // Utilities
 // 
+// Console filter
+//
 var isocodePhantomPrefixPresent = function(msg) {
-  return /^phantom|/.test(msg)
+  return /^phantom\|/.test(msg)
 };
 
 var isocodePhantomPrefixStrip = function(msg) {
   var prefix = 'phantom|'.length;
   return msg.substr(prefix);
 };
-
 
 
 //
@@ -38,13 +39,38 @@ page.onConsoleMessage = function(msg) {
 };
 
 
+var processPage = function() {
+
+  var getXHRLogConfig = function() {
+    var dataJSONString = JSON.stringify(window.XHRLog);
+    return 'XHRLog = ' + dataJSONString + ';\n';
+  };
+
+  var getIsocodeConfig = function() {
+    return window.Isocode ? 'IsocodeMode = "client";\n' : '';
+  };
+
+  var writeConfigToDOM = function() {
+    if (window.XHRLog) {
+      var head = document.getElementsByTagName('head')[0];
+      var inlineScriptHTML = '\n' +
+        '<script type="text/javascript">\n' +
+        getXHRLogConfig() +
+        getIsocodeConfig() +
+        '</script>\n';
+      head.innerHTML = inlineScriptHTML + head.innerHTML;
+    }
+  };
+
+  writeConfigToDOM();
+  console.log('phantom|' + $('html').html());
+};
+
 
 //
 // Drive PhantomJS
 // 
 page.open(args.url, function() {
-  page.evaluate(function() {
-    console.log($('html').html());
-  });
+  page.evaluate(processPage);
   phantom.exit();
 });

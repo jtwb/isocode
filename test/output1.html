@@ -1,0 +1,45 @@
+<head>
+<script type="text/javascript">
+XHRLog = {"GET /cats.json":{"_responseHeaders":"Date: Tue, 10 Dec 2013 21:25:30 GMT\r\nConnection: keep-alive\r\nContent-Length: 181\r\nLast-Modified: Tue, 03 Dec 2013 05:35:47 GMT\r\nServer: nginx/1.4.3\r\nContent-Type: application/json\r\n","readyState":4,"response":"[{\"name\":\"Wet Cat\",\"image_path\":\"assets/images/cat2.jpg\"},{\"name\":\"Bitey Cat\",\"image_path\":\"assets/images/cat1.jpg\"},{\"name\":\"Surprised Cat\",\"image_path\":\"assets/images/cat3.jpg\"}]\n","responseText":"[{\"name\":\"Wet Cat\",\"image_path\":\"assets/images/cat2.jpg\"},{\"name\":\"Bitey Cat\",\"image_path\":\"assets/images/cat1.jpg\"},{\"name\":\"Surprised Cat\",\"image_path\":\"assets/images/cat3.jpg\"}]\n","responseXML":null,"status":200,"statusText":"OK"},"GET /dogs.json":{"_responseHeaders":"Date: Tue, 10 Dec 2013 21:25:30 GMT\r\nConnection: keep-alive\r\nContent-Length: 181\r\nLast-Modified: Tue, 03 Dec 2013 05:36:07 GMT\r\nServer: nginx/1.4.3\r\nContent-Type: application/json\r\n","readyState":4,"response":"[{\"name\":\"Wet Dog\",\"image_path\":\"assets/images/cat2.jpg\"},{\"name\":\"Bitey Cat\",\"image_path\":\"assets/images/cat1.jpg\"},{\"name\":\"Surprised Cat\",\"image_path\":\"assets/images/cat3.jpg\"}]\n","responseText":"[{\"name\":\"Wet Dog\",\"image_path\":\"assets/images/cat2.jpg\"},{\"name\":\"Bitey Cat\",\"image_path\":\"assets/images/cat1.jpg\"},{\"name\":\"Surprised Cat\",\"image_path\":\"assets/images/cat3.jpg\"}]\n","responseXML":null,"status":200,"statusText":"OK"}};
+IsocodeMode = "client";
+</script>
+</head>
+<body style="">
+
+    <output id="out"><ul><li><code>[{"name":"Wet Cat","image_path":"assets/images/cat2.jpg"},{"name":"Bitey Cat","image_path":"assets/images/cat1.jpg"},{"name":"Surprised Cat","image_path":"assets/images/cat3.jpg"}]</code></li><li><code>[{"name":"Wet Dog","image_path":"assets/images/cat2.jpg"},{"name":"Bitey Cat","image_path":"assets/images/cat1.jpg"},{"name":"Surprised Cat","image_path":"assets/images/cat3.jpg"}]</code></li></ul></output>
+
+<script src="/isocode.js"></script>
+<script src="/jquery.js"></script>
+<script>
+
+
+$(function() {
+    var cats, dogs;
+
+    var out = function(data) {
+        $('<li><code>' + JSON.stringify(data) + '</code></li>').appendTo('#out ul');
+    };
+
+    $('#out').html('<ul/>');
+
+    return $.when(
+        $.getJSON('/cats.json', function(catdata) {
+          cats = catdata;
+        }),
+
+        $.getJSON('/dogs.json', function(dogfacts) {
+          dogs = dogfacts;
+        })
+    ).then(function() {
+        console.log({ cats: cats, dogs: dogs });
+        out(cats);
+        out(dogs);
+        Precognition.off();
+    });
+});
+
+</script>
+
+
+
+</body>
