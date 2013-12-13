@@ -1,0 +1,30 @@
+#!/bin/bash
+ARGS=$(getopt -o d: -l "driver:" -n "isocode" -- "$@");
+
+if [ $? -ne 0 ];
+then
+  exit 1
+fi
+
+eval set -- "$ARGS";
+
+while true; do
+  case "$1" in
+    -d|--driver)
+      shift;
+      DRIVER=$1
+      shift;
+      ;;
+    --)
+      shift;
+      break;
+      ;;
+  esac
+done
+
+if [ -n $DRIVER ];
+then
+  DRIVER=phantom
+fi
+
+drivers/phantomjs/render $1

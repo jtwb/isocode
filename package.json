@@ -1,19 +1,18 @@
 {
   "name": "isocode",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Javascript application prerenderer",
-  "main": "driver.js",
+  "main": "isocode",
+  "bin": {
+      "isocode": "isocode"
+  },
   "directories": {
     "example": "examples"
   },
-  "dependencies": {
-    "phantomjs": "~1.9.2-4"
-  },
-  "devDependencies": {},
   "scripts": {
-    "test": "bin/render `cat examples/angry-cats/URL`"
+    "test": "wget -O - `cat examples/angry-cats/URL` | ./isocode --driver=phantom"
   },
-  "repository": "",
+  "repository": "https://github.com/jtwb/isocode",
   "author": "jtwb",
   "license": "MIT"
 }

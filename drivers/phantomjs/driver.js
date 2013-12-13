@@ -62,8 +62,14 @@ var processPage = function() {
     }
   };
 
+  var getPageHTML = function() {
+    // $('html').html();
+    return (document.doctype ? document.doctype + '\n' : '') +
+      document.documentElement.outerHTML;
+  };
+
   writeConfigToDOM();
-  console.log('phantom|' + $('html').html());
+  console.log('phantom|' + getPageHTML());
 };
 
 
