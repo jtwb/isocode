@@ -24,13 +24,20 @@ var system = require('system');
 //
 // Usage and argparse
 //
-var usage = 'Usage: phantomjs driver.js [ URL | "-" ]';
+var usage = 'Usage: phantomjs driver.js [ URL | "-" [ port ] [ path ] ]';
 var args = Array.prototype.slice.call(system.args, 0);
 
-if (args.length < 2 || args[1] === '-') {
-  
-  // no arguments or first argument '-' implies read stdin
+console.log(args);
+if (args.length < 2) {
   args.stdin = true;
+if (args.length == 2 && args[1] === '-') {
+  args.stdin = true;
+  if (args[2]) {
+    args.port = args[2];
+  }
+  if (args[3]) {
+    args.path = args[3];
+  }
 } else if (/--help|-h|--version|-v/.test(args[1])) {
   console.log(usage);
   phantom.exit();
@@ -66,7 +73,7 @@ if (args.length < 2 || args[1] === '-') {
 if (args.stdin) {
   var webserver = require('webserver');
   var server = webserver.create();
-  var service = server.listen(9080, function(request, response) {
+  server.listen(3991, function(request, response) {
     var body = system.stdin.read(-1);
     response.statusCode = 200;
     response.write(body);
@@ -126,8 +133,17 @@ var processPage = function() {
   };
 
   var getPageHTML = function() {
-    return (document.doctype ? document.doctype + '\n' : '') +
+/* TODO support doctype, e.g. 
+    var html = "<!DOCTYPE "
+         + node.name
+         + (node.publicId ? ' PUBLIC "' + node.publicId + '"' : '')
+         + (!node.publicId && node.systemId ? ' SYSTEM' : '') 
+         + (node.systemId ? ' "' + node.systemId + '"' : '')
+         + '>';
+    return (document.doctype ? document.doctype.valueOf() + '\n' : '') +
       document.documentElement.outerHTML;
+*/
+    return document.documentElement.outerHTML;
   };
 
   writeConfigToDOM();
@@ -138,7 +154,7 @@ var processPage = function() {
 //
 // Drive PhantomJS
 // 
-page.open(args.stdin ? 'http://localhost:9080/' : args.url, function() {
+page.open(args.stdin ? 'http://localhost:3991/' : args.url, function() {
   page.evaluate(processPage);
   phantom.exit();
 });

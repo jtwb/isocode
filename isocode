@@ -29,4 +29,4 @@ then
   DRIVER=phantom
 fi
 
-$SCRIPT_DIR/drivers/phantomjs/render $1
+$SCRIPT_DIR/drivers/phantomjs/render $@
