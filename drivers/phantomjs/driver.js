@@ -27,7 +27,6 @@ var system = require('system');
 var usage = 'Usage: phantomjs driver.js [ URL | "-" ]';
 var args = Array.prototype.slice.call(system.args, 0);
 
-console.log(args);
 if (args.length < 2 || args[1] === '-') {
   
   // no arguments or first argument '-' implies read stdin
