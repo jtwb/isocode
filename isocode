@@ -1,7 +1,7 @@
 #!/bin/bash
-ARGS=$(getopt -o d: -l "driver:" -n "isocode" -- "$@");
 SCRIPT=$(readlink -f "${BASH_SOURCE[0]}")
 SCRIPT_DIR=$(readlink -f "${BASH_SOURCE[0]}" | xargs dirname)
+ARGS=$(getopt -o d: -l "driver:" -n "isocode" -- "$@");
 
 if [ $? -ne 0 ];
 then
