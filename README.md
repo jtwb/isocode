@@ -11,6 +11,8 @@ Run any Javascript app or HTML page with essential Javascript as [Isomorphic cod
 * Make complex `pushState`-based Javascript applications accessible to browsers without Javascript enabled or available.
 * Potentially improve the time until interaction for users with high connection latency.
 
+**Isocode** and **Precognition** are agnostic towards MVC frameworks or lack thereof. In theory, it works with **jQuery**, **BackboneJS**, **Marionette**, **Ember**, **Angular**, ad infinitum.
+
 # ≅ Usage
 
 ### Express / ConnectJS
