@@ -2,8 +2,8 @@
 
 Run any Javascript app or HTML page with essential Javascript as [Isomorphic code](http://nerds.airbnb.com/isomorphic-javascript-future-web-apps/). **Isocode** will
 
-* Transmit HTML describing the post-onLoad state of the page.
-* Precompute data loaded via `XMLHttpRequest` using **[Precognition](https://github.com/jtwb/precognition)**.
+* Serve the post-onLoad state of the HTML page.
+* Precompute and include data loaded via `XMLHttpRequest` using **[Precognition](https://github.com/jtwb/precognition)**.
 
 **Isocode** can
 
@@ -33,5 +33,4 @@ app.use(isocode());
 ### Rack / Nginx / Restify / Revel
 
 Port the [connect](https://github.com/jtwb/connect-isocode) wrapper to your platform. See [https://github.com/jtwb/isocode/wiki/Wrappers](Wrapper design).
-
 
