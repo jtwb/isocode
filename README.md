@@ -3,7 +3,7 @@
 Run any Javascript app or HTML page with essential Javascript as [Isomorphic code](http://nerds.airbnb.com/isomorphic-javascript-future-web-apps/). **Isocode** will
 
 * Transmit HTML describing the post-onLoad state of the page.
-* Cache all `XMLHttpRequests` using [Precognition](https://github.com/jtwb/precognition).
+* Precompute data loaded via `XMLHttpRequest` using **[Precognition](https://github.com/jtwb/precognition)**.
 
 **Isocode** can
 
@@ -11,7 +11,7 @@ Run any Javascript app or HTML page with essential Javascript as [Isomorphic cod
 * Make complex `pushState`-based Javascript applications accessible to browsers without Javascript enabled or available.
 * Potentially improve the time until interaction for users with high connection latency.
 
-**Isocode** and **Precognition** are agnostic towards MVC frameworks or lack thereof. In theory, it works with **jQuery**, **BackboneJS**, **Marionette**, **Ember**, **Angular**, ad infinitum.
+**Isocode** and **Precognition** are agnostic towards MVC frameworks or lack thereof. In theory, this works with **jQuery**, **BackboneJS**, **Marionette**, **Ember**, **Angular**, ad infinitum.
 
 # ≅ Usage
 
