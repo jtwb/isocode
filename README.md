@@ -21,6 +21,7 @@ Install the [connect-isocode](https://github.com/jtwb/connect-isocode) wrapper.
 
 ```bash
 $ npm install --save connect-isocode
+$ npm install -g phantomjs
 ```
 
 Use the middleware in your app
