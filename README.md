@@ -17,7 +17,7 @@ Run any Javascript app or HTML page with essential Javascript as [Isomorphic cod
 
 ### Express / ConnectJS
 
-Install the [connect-isocode](https://github.com/jtwb/connect-isocode) wrapper.
+Install the [connect-isocode](https://github.com/jtwb/connect-isocode) wrapper. (You may encounter https://github.com/ariya/phantomjs/issues/10904)
 
 ```bash
 $ npm install --save connect-isocode
@@ -33,5 +33,5 @@ app.use(isocode());
 
 ### Rack / Nginx / Restify / Revel
 
-Port the [connect](https://github.com/jtwb/connect-isocode) wrapper to your platform. See [https://github.com/jtwb/isocode/wiki/Wrappers](Wrapper design).
+Port the [connect](https://github.com/jtwb/connect-isocode) wrapper to your platform. See [Wrapper design](https://github.com/jtwb/isocode/wiki/Wrappers#Design).
 
