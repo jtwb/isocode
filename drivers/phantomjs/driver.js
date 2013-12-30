@@ -24,20 +24,12 @@ var system = require('system');
 //
 // Usage and argparse
 //
-var usage = 'Usage: phantomjs driver.js [ URL | "-" [ port ] [ path ] ]';
-var args = Array.prototype.slice.call(system.args, 0);
+var usage = 'Usage: phantomjs driver.js [ URL | "-" ]';
+var args = Array.prototype.slice.call(system.args);
 
-console.log(args);
-if (args.length < 2) {
+if (args.length < 2 || args[1] === '-') {
+
   args.stdin = true;
-if (args.length == 2 && args[1] === '-') {
-  args.stdin = true;
-  if (args[2]) {
-    args.port = args[2];
-  }
-  if (args[3]) {
-    args.path = args[3];
-  }
 } else if (/--help|-h|--version|-v/.test(args[1])) {
   console.log(usage);
   phantom.exit();
@@ -154,6 +146,10 @@ var processPage = function() {
 //
 // Drive PhantomJS
 // 
+page.customHeaders = {
+  'X-Isocode': 'Bypass'
+};
+
 page.open(args.stdin ? 'http://localhost:3991/' : args.url, function() {
   page.evaluate(processPage);
   phantom.exit();
