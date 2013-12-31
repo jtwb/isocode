@@ -34,3 +34,13 @@ app.use(isocode());
 
 Port the [connect](https://github.com/jtwb/connect-isocode) wrapper to your platform. See [Wrapper design](https://github.com/jtwb/isocode/wiki/Wrappers#Design).
 
+# ≅ Demo
+
+This demo Express app is using the connect-isocode middleware. It serves the BackboneJS application from [https://github.com/davidsulc/backbone.marionette-collection-example], which is based on 
+[https://github.com/ddellacosta/backbone.js-examples/tree/master/collections3].
+
+With Isocode disabled, the page requires Javascript.
+http://isocode-demo.odessa-labs.com/?bypass-isocode=1
+
+With Isocode, the data is available without Javascript.
+http://isocode-demo.odessa-labs.com/
