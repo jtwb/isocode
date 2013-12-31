@@ -60,7 +60,7 @@ app.use(isocode());
 
 Port the [connect](https://github.com/jtwb/connect-isocode) wrapper to your platform. See [Wrapper design](https://github.com/jtwb/isocode/wiki/Wrappers#Design).
 
-# ≅ Demo
+## ≅ Demo
 
 With Isocode disabled, the page requires Javascript.
 
