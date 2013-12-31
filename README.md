@@ -2,12 +2,13 @@
 
 **Isocode** evaluates any web page in a headless browser and builds a new page with all XHR traffic pre-cached and **[Precognition](https://github.com/jtwb/precognition)** included.
 
+**Isocode** middleware is available for [Express / ConnectJS](#express--connectjs).
+
 **Isocode** can
 
 * Serve the post-onLoad state of Javascript apps.
-* Reveal complex `pushState`-based Javascript applications to search engine indexes.
-* Make complex `pushState`-based Javascript applications accessible to browsers without Javascript enabled or available.
-* Potentially improve the time until interaction for users with high connection latency.
+* Reveal data in rich Javascript applications to search engine indexers, crawlers and users without Javascript enabled or available.
+* Potentially improve the time-to-interaction for users with high connection latency.
 
 **Isocode** and **Precognition** are agnostic towards MVC frameworks or lack thereof. In theory, this works with **jQuery**, **BackboneJS**, **Marionette**, **Ember**, **Angular**, ad infinitum.
 
