@@ -29,7 +29,7 @@ Let's say you have a Javascript application bound to your REST API. The first th
 
 With Isocode enabled, visitors to `yourapp.com/users/jtwb` will not have to make that initial XHR request because the API response *will be inlined in the page and replayed via Precognition*. [Precognition](https://github.com/jtwb/precognition) creates a proxy over the browser's XMLHttpRequest and skips requests inlined in the page.
 
-Combined with `Cache-control` headers and a caching proxy, you have now eliminated that initial API latency without having to spin up PhantomJS on every request.
+Combined with `Cache-Control` headers and a caching proxy, you have now eliminated that initial API latency without having to spin up PhantomJS on every request.
 
 If the content is truly uncacheable however, you would face a balance between the benefit of performing XHR over the low-latency inter-colo network (ideally loopback) and the cost of PhantomJS. You may still gain in speed because your user's browser may very well transit a cell phone tower and the internet backbone. Isocode is loosely coupled with PhantomJS so faster page evaluators may become available later.
 
