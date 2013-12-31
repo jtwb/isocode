@@ -70,5 +70,5 @@ With Isocode, the data is available without Javascript.
 
 http://isocode-demo.odessa-labs.com/
 
-This demo Express app is using the connect-isocode middleware. It serves the BackboneJS application from https://github.com/davidsulc/backbone.marionette-collection-example, which is based on 
+The server is running a [connect-isocode test Express application](https://github.com/jtwb/connect-isocode/tree/master/test/cats), using the Isocode middleware. It serves the BackboneJS application from https://github.com/davidsulc/backbone.marionette-collection-example, which is based on 
 https://github.com/ddellacosta/backbone.js-examples/tree/master/collections3.
