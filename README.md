@@ -1,12 +1,10 @@
 # Isocode ≅
 
-Run any Javascript app or HTML page with essential Javascript as [Isomorphic code](http://nerds.airbnb.com/isomorphic-javascript-future-web-apps/). **Isocode** will
-
-* Serve the post-onLoad state of the HTML page.
-* Precompute and include data loaded via `XMLHttpRequest` using **[Precognition](https://github.com/jtwb/precognition)**.
+**Isocode** evaluates any web page in a headless browser and builds a new page with all XHR traffic pre-cached and **[Precognition](https://github.com/jtwb/precognition)** included.
 
 **Isocode** can
 
+* Serve the post-onLoad state of Javascript apps.
 * Reveal complex `pushState`-based Javascript applications to search engine indexes.
 * Make complex `pushState`-based Javascript applications accessible to browsers without Javascript enabled or available.
 * Potentially improve the time until interaction for users with high connection latency.
