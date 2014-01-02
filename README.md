@@ -56,7 +56,11 @@ var isocode = require('connect-isocode');
 app.use(isocode());
 ```
 
-### Rack / Nginx / Restify / Revel
+### Rack
+
+See https://github.com/jtwb/rack-isocode
+
+### Nginx / Restify / Revel
 
 Port the [connect](https://github.com/jtwb/connect-isocode) wrapper to your platform. See [Wrapper design](https://github.com/jtwb/isocode/wiki/Wrappers#Design).
 
