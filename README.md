@@ -64,15 +64,17 @@ See https://github.com/jtwb/rack-isocode
 
 Port the [connect](https://github.com/jtwb/connect-isocode) wrapper to your platform. See [Wrapper design](https://github.com/jtwb/isocode/wiki/Wrappers#Design).
 
-## ≅ Demo
+## ≅ Live Demo
 
 With Isocode disabled, the page requires Javascript.
 
 http://isocode-demo.odessa-labs.com/?bypass-isocode=1
 
-With Isocode, the data is available without Javascript.
+Otherwise, the data is available without Javascript thanks to **Isocode**.
 
 http://isocode-demo.odessa-labs.com/
+
+Try viewing the demo pages with javascript disabled in your browser.
 
 The server is running a [connect-isocode test Express application](https://github.com/jtwb/connect-isocode/tree/master/test/cats), using the Isocode middleware. It serves the BackboneJS application from https://github.com/davidsulc/backbone.marionette-collection-example, which is based on 
 https://github.com/ddellacosta/backbone.js-examples/tree/master/collections3.
